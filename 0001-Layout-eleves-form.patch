@@ -1,0 +1,284 @@
+From 4861bf704ff71df85303b05db677a49229b30181 Mon Sep 17 00:00:00 2001
+From: ameziel <samuel.sicard.it@gmail.com>
+Date: Thu, 17 Aug 2023 21:22:41 +0200
+Subject: [PATCH] Layout & eleves form
+
+---
+ src/app/app-routing.module.ts                 |  7 +--
+ src/app/app.component.html                    | 50 +++++++++++--------
+ src/app/app.component.ts                      |  2 +
+ src/app/app.module.ts                         |  9 +++-
+ src/app/eleves/eleves.module.ts               | 40 +++++++++++++++
+ src/app/eleves/eleves/eleves.component.css    |  0
+ src/app/eleves/eleves/eleves.component.html   |  1 +
+ .../eleves/eleves/eleves.component.spec.ts    | 23 +++++++++
+ src/app/eleves/eleves/eleves.component.ts     | 10 ++++
+ .../form-ajout/form-ajout.component.css       |  0
+ .../form-ajout/form-ajout.component.html      | 31 ++++++++++++
+ .../form-ajout/form-ajout.component.spec.ts   | 23 +++++++++
+ .../eleves/form-ajout/form-ajout.component.ts | 21 ++++++++
+ 13 files changed, 192 insertions(+), 25 deletions(-)
+
+
+diff --git a/src/app/app-routing.module.ts b/src/app/app-routing.module.ts
+index ed08b18..09868c5 100644
+--- a/src/app/app-routing.module.ts
++++ b/src/app/app-routing.module.ts
+@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
+ 
+ const routes: Routes = [
+   {
+-    //path: 'moniteurs',
+-    //loadChildren: (...) => module.MoniteursMOdule
+-  }
++    path: 'eleves',
++    loadChildren: () =>
++      import('./eleves/eleves.module').then((m) => m.ElevesModule),
++  },
+ ];
+ 
+ @NgModule({
+
+diff --git a/src/app/app.component.ts b/src/app/app.component.ts
+index 1191aa4..e69142c 100644
+--- a/src/app/app.component.ts
++++ b/src/app/app.component.ts
+@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
+ })
+ export class AppComponent {
+   title = 'TennisManagementSystemfront';
++
++  isOpened = true;
+ }
+ 
+ 
+diff --git a/src/app/app.module.ts b/src/app/app.module.ts
+index 0fd3eea..848ed5a 100644
+--- a/src/app/app.module.ts
++++ b/src/app/app.module.ts
+@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
+ import {MatToolbarModule} from '@angular/material/toolbar';
+ import {MatSidenavModule} from '@angular/material/sidenav';
+ import {MatIconModule} from '@angular/material/icon';
++import {MatListModule} from '@angular/material/list';
++import { MAT_DATE_LOCALE } from '@angular/material/core';
+ 
+ @NgModule({
+   declarations: [
+@@ -20,9 +22,12 @@ import {MatIconModule} from '@angular/material/icon';
+     MatIconModule,
+     MatButtonModule,
+     MatSidenavModule,
+-    MatToolbarModule
++    MatToolbarModule,
++    MatListModule
++  ],
++  providers: [
++    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+   ],
+-  providers: [],
+   bootstrap: [AppComponent]
+ })
+ export class AppModule { }
+diff --git a/src/app/eleves/eleves.module.ts b/src/app/eleves/eleves.module.ts
+new file mode 100644
+index 0000000..8f1a1fa
+--- /dev/null
++++ b/src/app/eleves/eleves.module.ts
+@@ -0,0 +1,40 @@
++import { NgModule } from '@angular/core';
++import { CommonModule } from '@angular/common';
++import { ElevesComponent } from './eleves/eleves.component';
++import { Routes, RouterModule } from '@angular/router';
++import { FormAjoutComponent } from './form-ajout/form-ajout.component';
++import { FormsModule } from '@angular/forms';
++import {MatFormFieldModule} from '@angular/material/form-field';
++import {MatInputModule} from '@angular/material/input';
++import {MatCheckboxModule} from '@angular/material/checkbox';
++import {MatDatepickerModule} from '@angular/material/datepicker';
++import {MatNativeDateModule} from '@angular/material/core';
++
++const routes: Routes = [
++  {
++    path: '',
++    component: ElevesComponent,
++  },
++  {
++    path: 'ajout',
++    component: FormAjoutComponent,
++  }
++];
++
++@NgModule({
++  declarations: [
++    ElevesComponent,
++    FormAjoutComponent
++  ],
++  imports: [
++    CommonModule,
++    RouterModule.forChild(routes),
++    FormsModule,
++    MatFormFieldModule,
++    MatInputModule,
++    MatCheckboxModule,
++    MatDatepickerModule,
++    MatNativeDateModule
++  ]
++})
++export class ElevesModule { }
+diff --git a/src/app/eleves/eleves/eleves.component.css b/src/app/eleves/eleves/eleves.component.css
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/app/eleves/eleves/eleves.component.html b/src/app/eleves/eleves/eleves.component.html
+new file mode 100644
+index 0000000..13749cd
+--- /dev/null
++++ b/src/app/eleves/eleves/eleves.component.html
+@@ -0,0 +1 @@
++<!-- angular material table ici -->
+\ No newline at end of file
+diff --git a/src/app/eleves/eleves/eleves.component.spec.ts b/src/app/eleves/eleves/eleves.component.spec.ts
+new file mode 100644
+index 0000000..5978dc7
+--- /dev/null
++++ b/src/app/eleves/eleves/eleves.component.spec.ts
+@@ -0,0 +1,23 @@
++import { ComponentFixture, TestBed } from '@angular/core/testing';
++
++import { ElevesComponent } from './eleves.component';
++
++describe('ElevesComponent', () => {
++  let component: ElevesComponent;
++  let fixture: ComponentFixture<ElevesComponent>;
++
++  beforeEach(async () => {
++    await TestBed.configureTestingModule({
++      declarations: [ ElevesComponent ]
++    })
++    .compileComponents();
++
++    fixture = TestBed.createComponent(ElevesComponent);
++    component = fixture.componentInstance;
++    fixture.detectChanges();
++  });
++
++  it('should create', () => {
++    expect(component).toBeTruthy();
++  });
++});
+diff --git a/src/app/eleves/eleves/eleves.component.ts b/src/app/eleves/eleves/eleves.component.ts
+new file mode 100644
+index 0000000..6c037a6
+--- /dev/null
++++ b/src/app/eleves/eleves/eleves.component.ts
+@@ -0,0 +1,10 @@
++import { Component } from '@angular/core';
++
++@Component({
++  selector: 'app-eleves',
++  templateUrl: './eleves.component.html',
++  styleUrls: ['./eleves.component.css']
++})
++export class ElevesComponent {
++
++}
+diff --git a/src/app/eleves/form-ajout/form-ajout.component.css b/src/app/eleves/form-ajout/form-ajout.component.css
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/app/eleves/form-ajout/form-ajout.component.html b/src/app/eleves/form-ajout/form-ajout.component.html
+new file mode 100644
+index 0000000..7814d68
+--- /dev/null
++++ b/src/app/eleves/form-ajout/form-ajout.component.html
+@@ -0,0 +1,31 @@
++<form #eleveForm="ngForm" (ngSubmit)="onSubmit(eleveForm)">
++    <mat-form-field>
++      <input matInput placeholder="Prénom" name="prenom" [ngModel] required>
++    </mat-form-field>
++    <mat-form-field>
++      <input matInput placeholder="Nom" name="nom" ngModel required>
++    </mat-form-field>
++    <mat-form-field>
++      <input matInput placeholder="Genre" name="genre" ngModel required>
++    </mat-form-field>
++    <mat-form-field>
++      <input matInput placeholder="Téléphone" name="telephone" ngModel required>
++    </mat-form-field>
++    <mat-form-field>
++      <input matInput type="email" placeholder="Email" name="email" ngModel required>
++    </mat-form-field>
++    <mat-form-field>
++        <mat-label>Date de naissance</mat-label>
++        <input matInput [max]="maxDate" [matDatepicker]="picker" ngModel>
++        <mat-hint>DD/MM/YYYY</mat-hint>
++        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
++        <mat-datepicker #picker></mat-datepicker>
++    </mat-form-field>
++    <mat-form-field>
++      <textarea matInput placeholder="Détails" name="details" ngModel required></textarea>
++    </mat-form-field>
++    <mat-checkbox name="actif" ngModel>Actif</mat-checkbox>
++  
++    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
++  </form>
++  
+\ No newline at end of file
+diff --git a/src/app/eleves/form-ajout/form-ajout.component.spec.ts b/src/app/eleves/form-ajout/form-ajout.component.spec.ts
+new file mode 100644
+index 0000000..61bb3f8
+--- /dev/null
++++ b/src/app/eleves/form-ajout/form-ajout.component.spec.ts
+@@ -0,0 +1,23 @@
++import { ComponentFixture, TestBed } from '@angular/core/testing';
++
++import { FormAjoutComponent } from './form-ajout.component';
++
++describe('FormAjoutComponent', () => {
++  let component: FormAjoutComponent;
++  let fixture: ComponentFixture<FormAjoutComponent>;
++
++  beforeEach(async () => {
++    await TestBed.configureTestingModule({
++      declarations: [ FormAjoutComponent ]
++    })
++    .compileComponents();
++
++    fixture = TestBed.createComponent(FormAjoutComponent);
++    component = fixture.componentInstance;
++    fixture.detectChanges();
++  });
++
++  it('should create', () => {
++    expect(component).toBeTruthy();
++  });
++});
+diff --git a/src/app/eleves/form-ajout/form-ajout.component.ts b/src/app/eleves/form-ajout/form-ajout.component.ts
+new file mode 100644
+index 0000000..87007f3
+--- /dev/null
++++ b/src/app/eleves/form-ajout/form-ajout.component.ts
+@@ -0,0 +1,21 @@
++import { Component } from '@angular/core';
++import { NgForm } from '@angular/forms';
++import { Eleve } from 'src/app/shared/models/eleve.model';
++
++@Component({
++  selector: 'app-form-ajout',
++  templateUrl: './form-ajout.component.html',
++  styleUrls: ['./form-ajout.component.css'],
++  providers: [
++  ],
++})
++export class FormAjoutComponent {
++  maxDate: Date = new Date();
++
++  onSubmit(eleveForm: NgForm) {
++    const formData: Eleve = eleveForm.value;
++    console.log(formData);
++  }
++
++  // reflechir à comment utiliser le service ;) 
++}
+-- 
+2.34.1
+
