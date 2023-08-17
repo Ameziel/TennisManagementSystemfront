@@ -1,28 +1,38 @@
-<mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Titre appli</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
+
 
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
-                 [fixedInViewport]="false" [fixedTopGap]="10"
-                 [fixedBottomGap]="10">
-       Sidenav
+    <mat-sidenav #sidenav mode="side" class="example-sidenav"
+                 [fixedInViewport]="true" 
+                 [mode]="'side'"
+                 [opened]="isOpened"
+                 >
+
+          <mat-toolbar>
+            <button mat-icon-button (click)="isOpened = !isOpened">
+              <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/eleves">
+            <mat-icon>groups</mat-icon>&nbsp; Eleves
+          </a>
+          <a mat-list-item>
+            <mat-icon>person</mat-icon>&nbsp; Moniteurs
+          </a>
+          <a mat-list-item>
+            <mat-icon>info</mat-icon>&nbsp; Formules
+          </a>
+        </mat-nav-list>
+
     </mat-sidenav>
 
     <mat-sidenav-content >
+      <mat-toolbar color="primary">
+        <span>
+          Tennis Management System
+        </span>
+      </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-
-  <mat-toolbar class="example-footer">Footer</mat-toolbar>
-

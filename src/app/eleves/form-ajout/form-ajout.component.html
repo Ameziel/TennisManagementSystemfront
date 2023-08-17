@@ -1,0 +1,31 @@
+<form #eleveForm="ngForm" (ngSubmit)="onSubmit(eleveForm)">
+    <mat-form-field>
+      <input matInput placeholder="Prénom" name="prenom" [ngModel] required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nom" name="nom" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Genre" name="genre" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Téléphone" name="telephone" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" name="email" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Date de naissance</mat-label>
+        <input matInput [max]="maxDate" [matDatepicker]="picker" ngModel>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Détails" name="details" ngModel required></textarea>
+    </mat-form-field>
+    <mat-checkbox name="actif" ngModel>Actif</mat-checkbox>
+  
+    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
+  </form>
+  

@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    //path: 'moniteurs',
-    //loadChildren: (...) => module.MoniteursMOdule
-  }
+    path: 'eleves',
+    loadChildren: () =>
+      import('./eleves/eleves.module').then((m) => m.ElevesModule),
+  },
 ];
 
 @NgModule({
