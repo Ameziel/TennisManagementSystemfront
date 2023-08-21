@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ElevesComponent } from './eleves/eleves.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormAjoutComponent } from './form-ajout/form-ajout.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -34,7 +36,10 @@ const routes: Routes = [
     MatInputModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ]
 })
 export class ElevesModule { }
