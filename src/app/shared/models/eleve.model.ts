@@ -1,7 +1,7 @@
 
 enum Genre {
-  Male = 'M',
-  Female = 'F'
+  Homme = 'H',
+  Femme = 'F'
 }
 
 export interface Eleve {
