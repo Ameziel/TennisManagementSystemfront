@@ -1,0 +1,44 @@
+<h1>Ajouter un élève</h1>
+<form class="form-container"  [formGroup]="ajoutEleveFormGroup" (ngSubmit)="handleSaveEleve()">
+
+  <mat-radio-group formControlName="genre" aria-label="Select an option" >
+    <mat-radio-button value="F" id="F" name="genre" checked>F</mat-radio-button>
+    <mat-radio-button value="H" id="H" name="genre">H</mat-radio-button>
+  </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Nom" name="nom" formControlName="nom" required>
+    </mat-form-field>
+
+
+
+
+  <mat-form-field>
+    <input matInput type="email" placeholder="Email" type="email" name="email" formControlName="email" required>
+  </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Téléphone" name="telephone" formControlName="telephone" required>
+    </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Choisissez une date</mat-label>
+    <input matInput formControlName="dateDeNaissance" [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Détails" name="details" formControlName="details"></textarea>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="actif">Actif</mat-checkbox>
+
+    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
+  </form>
