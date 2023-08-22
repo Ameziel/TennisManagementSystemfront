@@ -11,6 +11,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
 
 const routes: Routes = [
   {
@@ -40,6 +42,8 @@ const routes: Routes = [
     MatRadioModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
+    MatTableModule,
   ]
 })
 export class ElevesModule { }
