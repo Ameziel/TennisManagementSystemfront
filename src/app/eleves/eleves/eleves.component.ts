@@ -22,8 +22,6 @@ export class ElevesComponent implements AfterViewInit {
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(this.eleves);
   }
-
-
   ngAfterViewInit() {
     // @ts-ignore
     // this.dataSource.paginator = this.paginator;
