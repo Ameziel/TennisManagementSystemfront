@@ -5,7 +5,7 @@
 
 <div class="table-container">
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table mat-table [dataSource]="(eleves$ | async)!" matSort>
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
@@ -40,6 +40,6 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+<!--  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>-->
 </div>
 </div>

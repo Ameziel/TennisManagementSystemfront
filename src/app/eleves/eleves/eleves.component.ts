@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {ElevesService} from "../../shared/service/eleves.service";
 
 
 // id: string;
@@ -26,10 +27,6 @@ const FRUITS: string[] = [
   'lychee',
   'kiwi',
   'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
 ];
 const NAMES: string[] = [
   'Maia',
@@ -37,20 +34,6 @@ const NAMES: string[] = [
   'Olivia',
   'Atticus',
   'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
 ];
 
 @Component({
@@ -60,33 +43,32 @@ const NAMES: string[] = [
 })
 export class ElevesComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  // dataSource: MatTableDataSource<UserData>;
+  readonly eleves$ = this.eleveService.getAllEleves();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
-
-  constructor() {
+  // @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  // @ViewChild(MatSort) sort: MatSort | undefined;
+  constructor(private eleveService : ElevesService) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    // this.dataSource = new MatTableDataSource(users);
   }
-
   ngAfterViewInit() {
     // @ts-ignore
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
     // @ts-ignore
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
+    //
+    // if (this.dataSource.paginator) {
+    //   this.dataSource.paginator.firstPage();
+    // }
   }
 }
 

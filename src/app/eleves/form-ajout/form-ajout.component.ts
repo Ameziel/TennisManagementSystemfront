@@ -22,8 +22,8 @@ export class FormAjoutComponent {
         prenom: this.formBuilder.control(null, [Validators.required]),
         nom: this.formBuilder.control(null, [Validators.required]),
         genre: this.formBuilder.control(null),
-        email: this.formBuilder.control(null),
-        telephone: this.formBuilder.control(null),
+        email: this.formBuilder.control(null, [Validators.required]),   //TODO validator email telephone
+        telephone: this.formBuilder.control(null, [Validators.required]),
         dateDeNaissance: this.formBuilder.control([Validators.required]),
         details: this.formBuilder.control(null),
         actif: this.formBuilder.control(false),
