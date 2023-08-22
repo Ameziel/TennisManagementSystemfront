@@ -13,6 +13,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTableModule,
+    MatIconModule,
   ]
 })
 export class ElevesModule { }
