@@ -1,1 +1,33 @@
-<p>form-ajout-moniteur works!</p>
+<h1>Ajouter un Moniteur</h1>
+<form class="form-container"  [formGroup]="ajoutMoniteurFormGroup" (ngSubmit)="handleSaveEleve()">
+
+  <mat-form-field>
+    <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Nom" name="nom" formControlName="nom" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="email" placeholder="Email" type="email" name="email" formControlName="email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Téléphone" name="telephone" formControlName="telephone" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Qualification obtenue</mat-label>
+    <mat-select formControlName="qualification">
+      <mat-option value="AUCUN">Aucun</mat-option>
+      <mat-option value="INITIATEUR">Animateur </mat-option>
+      <mat-option value="EDUCATEUR">Educateur</mat-option>
+      <mat-option value="ENTRAINEUR">Entraineur</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="actif">Actif</mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit">Créer Moniteur</button>
+</form>

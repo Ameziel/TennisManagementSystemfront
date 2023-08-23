@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin: 2%;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px;
+  margin: 3% auto 3% auto;
+  padding: 2% 0 2% 0;
+  width: 60%;
+  align-items: center;
+}
+.mat-radio-group {
+  display: flex;
+  justify-content: space-between; /* Pour espacer les boutons radio horizontalement */
+}
