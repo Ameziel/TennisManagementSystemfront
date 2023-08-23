@@ -6,7 +6,10 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
   {
@@ -30,7 +33,11 @@ const routes: Routes = [
     FormsModule,
     MatIconModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class MoniteursModule { }
