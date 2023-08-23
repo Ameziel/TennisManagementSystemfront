@@ -1,5 +1,6 @@
 enum Qualification {
-  Animateur = "Animateur",
+  Aucun = "AUCUN",
+  Animateur = "ANIMATEUR",
   Initiateur = "INITIATEUR",
   Educateur = "EDUCATEUR",
   Entraineur = "ENTRAINEUR"
@@ -11,6 +12,6 @@ export interface Moniteur {
   nom : string;
   email : string;
   telephone : string;
-  qualification: string;
+  qualification: Qualification;
   actif: boolean;
 }
