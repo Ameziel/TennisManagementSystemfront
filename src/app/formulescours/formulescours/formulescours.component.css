@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+}
+
+.full-container {
+  display: flex;
+  flex-direction: row;
+}
+
+mat-card {
+  border: solid 1px chocolate;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+mat-card-footer {
+  text-align: center;
+}
