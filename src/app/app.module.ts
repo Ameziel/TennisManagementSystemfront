@@ -14,7 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,16 +33,3 @@ import {HttpClientModule} from "@angular/common/http";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-/*
-button
-buttontoggle
-chips
-datepicker
-dialog
-card
-expension
-
-sidenav
-*/
