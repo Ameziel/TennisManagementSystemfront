@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./eleves/eleves.module').then((m) => m.ElevesModule),
   },
+  {
+    path: 'moniteurs',
+    loadChildren: () =>
+      import('./moniteurs/moniteurs.module').then((m) => m.MoniteursModule),
+  }
 ];
 
 @NgModule({
