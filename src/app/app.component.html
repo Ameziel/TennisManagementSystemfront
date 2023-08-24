@@ -1,32 +1,32 @@
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" class="example-sidenav"
-                 [fixedInViewport]="true"
-                 [mode]="'side'"
-                 [opened]="isOpened"
-                 >
-          <mat-toolbar>
-            <button mat-icon-button (click)="isOpened = !isOpened">
-              <mat-icon>menu</mat-icon>
-            </button>
-        </mat-toolbar>
-        <mat-nav-list>
-          <a mat-list-item routerLink="/eleves">
-            <mat-icon>groups</mat-icon>&nbsp; Eleves
-          </a>
-          <a mat-list-item routerLink="/moniteurs">
-            <mat-icon>person</mat-icon>&nbsp; Moniteurs
-          </a>
-          <a mat-list-item>
-            <mat-icon>info</mat-icon>&nbsp; Formules
-          </a>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content >
-      <mat-toolbar color="primary">
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" class="example-sidenav"
+               [fixedInViewport]="true"
+               [mode]="'side'"
+               [opened]="isOpened"
+  >
+    <mat-toolbar>
+      <button mat-icon-button (click)="isOpened = !isOpened">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/eleves">
+        <mat-icon>groups</mat-icon>&nbsp; Eleves
+      </a>
+      <a mat-list-item routerLink="/moniteurs">
+        <mat-icon>person</mat-icon>&nbsp; Moniteurs
+      </a>
+      <a mat-list-item routerLink="/formulescours">
+        <mat-icon>info</mat-icon>&nbsp; Formules
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
         <span>
           Tennis Management System
         </span>
-      </mat-toolbar>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

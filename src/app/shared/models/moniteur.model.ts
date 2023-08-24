@@ -4,14 +4,14 @@ enum Qualification {
   Initiateur = "INITIATEUR",
   Educateur = "EDUCATEUR",
   Entraineur = "ENTRAINEUR"
-
 }
+
 export interface Moniteur {
   id: string;
-  prenom : string;
-  nom : string;
-  email : string;
-  telephone : string;
+  prenom: string;
+  nom: string;
+  email: string;
+  telephone: string;
   qualification: Qualification;
   actif: boolean;
 }
