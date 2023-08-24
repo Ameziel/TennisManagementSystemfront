@@ -1,1 +1,86 @@
-<p>form-ajout-formulecours works!</p>
+<h1>Ajouter une Formule de Cours</h1>
+<form class="form-container" [formGroup]="ajoutFormuleCoursFormGroup" (ngSubmit)="handleSaveFormuleCours()">
+
+  <mat-form-field>
+    <mat-label>Nombre d'élèves de la formule</mat-label>
+    <mat-select formControlName="effectifMaximum">
+      <mat-option *ngFor="let i of iterationCount(10); let index = index" value="{{ index + 1 }}"> {{ index + 1 }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nb séances total</mat-label>
+    <input matInput type="number" name="nombreSeanceTotal" min="1" max="100" pattern="[0-9]{2}" formControlName="nombreSeanceTotal" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nombre de séances/sem</mat-label>
+    <mat-select formControlName="nombreSeanceHebdomadaire">
+      <mat-option *ngFor="let i of iterationCount(4); let index = index" value="{{ index + 1 }}"> {{ index + 1 }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Durée de la séance</mat-label>
+    <mat-select formControlName="dureeSeanceMinuteCours">
+      <mat-option value="60">1H00</mat-option>
+      <mat-option value="90">1H30</mat-option>
+      <mat-option value="120">2H00</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tarif</mat-label>
+    <input matInput type="number" name="tarif" min="1" max="1000" formControlName="tarif" required>
+  </mat-form-field>
+
+<div class="date-container">
+  <mat-form-field class="example-full-width">
+    <mat-label>Date début des cours</mat-label>
+    <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="dateDebut">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Date fin des cours</mat-label>
+    <input matInput [matDatepicker]="picker2"[min]="minDate" formControlName="dateFin">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker2></mat-datepicker>
+  </mat-form-field>
+</div>
+
+  <mat-form-field>
+    <mat-label>Catégorie d'âge</mat-label>
+    <mat-select formControlName="categorieAge">
+      <mat-option [value]="option" *ngFor="let option of categoriesAges">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Période</mat-label>
+    <mat-select formControlName="periode" required>
+      <mat-option [value]="option" *ngFor="let option of periodes">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type de balle</mat-label>
+    <mat-select formControlName="typeBalle" required>
+      <mat-option [value]="option" *ngFor="let option of typesBalles">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Niveau de jeu</mat-label>
+    <mat-select formControlName="niveau" required>
+      <mat-option [value]="option" *ngFor="let option of niveaux">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <mat-checkbox formControlName="actif">Actif</mat-checkbox>
+
+    <button mat-raised-button color="primary" type="submit">Créer Formule</button>
+</form>
