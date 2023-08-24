@@ -1,22 +1,21 @@
-enum CategorieAge {
+export enum CategorieAge {
   Enfant = "ENFANT",
   Jeune = "JEUNE",
   Adolescent = "ADOLESCENT",
   Adulte = "ADULTE",
-  Entraineur = "ENTRAINEUR"
 }
-enum Periode{
+export enum Periode{
   Ete = "ETE",
     Hiver = "HIVER",
     Annee = "ANNEE"
 }
-enum TypeBalle {
+export enum TypeBalle {
   Rouge = "ROUGE",
   Orange = "ORANGE",
   Verte = "VERTE",
   Jaune = "JAUNE"
 }
-enum Niveau {
+export enum Niveau {
   Loisir = "LOISIR",
   QuatriemeSerie = "QUATRIEME_SERIE",
   TroisiemeSerie = "TROISIEME_SERIE",
