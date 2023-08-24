@@ -5,6 +5,15 @@ import {FormAjoutFormulecoursComponent} from './form-ajout-formulecours/form-ajo
 import {RouterModule, Routes} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 const routes: Routes = [
@@ -27,6 +36,15 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatCardModule,
     MatButtonModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatIconModule,
+    MatNativeDateModule,
   ]
 })
 export class FormulescoursModule { }
