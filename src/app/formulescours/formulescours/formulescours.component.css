@@ -1,12 +1,13 @@
 h1 {
   text-align: center;
 }
-
-.full-container {
-  display: flex;
-  flex-direction: row;
+/*.full-container { used with flex but here I used mat-grid*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*}*/
+mat-grid-tile {
+  background: lightblue;
 }
-
 mat-card {
   border: solid 1px chocolate;
 }
