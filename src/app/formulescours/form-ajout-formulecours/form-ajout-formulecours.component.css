@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+}
+
+mat-checkbox {
+  text-align: center;
+}

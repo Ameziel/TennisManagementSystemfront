@@ -1,33 +1,34 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../../environments/environment";
 import {Formulecours} from "../models/formulecours.model";
+import {environment} from "../../../environments/environments";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormulecoursService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  public getAllFormules():Observable<Array<Formulecours>> {
-      return this.http.get<Array<Formulecours>>(environment.backendHost + "/formulecours");
-    }
+  public getAllFormules(): Observable<Array<Formulecours>> {
+    return this.http.get<Array<Formulecours>>(environment.backendHost + "/formulescours");
+  }
 
-  public getFormuleCoursById(id : string) : Observable<Formulecours> {
-      return this.http.get<Formulecours>(environment.backendHost + "/formulecours/" + id);
-    }
+  public getFormuleCoursById(id: string): Observable<Formulecours> {
+    return this.http.get<Formulecours>(environment.backendHost + "/formulescours/" + id);
+  }
 
-  public updateFormuleCours(formulecours : Formulecours) : Observable<Formulecours> {
-      return this.http.put<Formulecours>( environment.backendHost + "/formulecours/" + formulecours.id, formulecours);
-    }
+  public updateFormuleCours(formulecours: Formulecours): Observable<Formulecours> {
+    return this.http.put<Formulecours>(environment.backendHost + "/formulescours/" + formulecours.id, formulecours);
+  }
 
-  public saveFormuleCours(formulecours : Formulecours):Observable<Formulecours> {
-      return this.http.post<Formulecours>( environment.backendHost + "/formulecours", formulecours);
-    }
+  public saveFormuleCours(formulecours: Formulecours): Observable<Formulecours> {
+    return this.http.post<Formulecours>(environment.backendHost + "/formulescours", formulecours);
+  }
 
-  public deleteFormuleCours(id : string){
-      return this.http.delete( environment.backendHost + "/formulecours/" + id);
-    }
+  public deleteFormuleCours(id: string) {
+    return this.http.delete(environment.backendHost + "/formulescours/" + id);
+  }
 }
