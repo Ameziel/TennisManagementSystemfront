@@ -8,40 +8,41 @@
     <table mat-table [dataSource]="(eleves$ | async)!" matSort>
 
       <ng-container matColumnDef="nom">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom</th>
         <td mat-cell *matCellDef="let row"> {{row.nom}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="prenom">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prenom </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prenom</th>
         <td mat-cell *matCellDef="let row"> {{row.prenom}} </td>
       </ng-container>
 
       <ng-container matColumnDef="genre">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Genre </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Genre</th>
         <td mat-cell *matCellDef="let row"> {{row.genre}} </td>
       </ng-container>
 
       <ng-container matColumnDef="telephone">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone</th>
         <td mat-cell *matCellDef="let row"> {{row.telephone}} </td>
       </ng-container>
 
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email</th>
         <td mat-cell *matCellDef="let row"> {{row.email}} </td>
       </ng-container>
 
       <ng-container matColumnDef="dateDeNaissance">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de naissance </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de naissance</th>
         <td mat-cell *matCellDef="let row"> {{row.dateDeNaissance}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Editer </th>
-        <td mat-cell *matCellDef="let row"> <mat-icon>info</mat-icon>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Editer</th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon>info</mat-icon>
           <!--        //TODO rendre le lien cliquable et ouvrir la page edit eleve-->
           <!--        test commit fatigue-->
         </td>
