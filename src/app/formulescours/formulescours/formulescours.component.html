@@ -1,34 +1,33 @@
-<h1>Formules de Cours</h1>
-<div class="full-container" *ngFor='let formule of formules | async'>
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar>
-        <!--      <img src="chemin/vers/image.png" alt="Image du cours">-->
-      </div>
-      <mat-card-title-group>
-        <mat-card-title>Cours {{formule.categorieAge}} - {{formule.nombreSeanceHebdomadaire}}/sem - Groupe
-          de {{formule.effectifMaximum}}</mat-card-title>
-        <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de{{formule.dureeSeanceMinuteCours}}mins
-        </mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card-header>
-    <!--  <img mat-card-image src="chemin/vers/image2.png" alt="Image illustrative">-->
-    <mat-card-content>
-      <div><strong>Début des cours :</strong> {{formule.dateFin | date:'dd MMMM yyyy' : 'fr-FR'}}</div>
-      <div><strong>Fin des cours :</strong> {{formule.dateFin | date:'dd MMMM yyyy' : 'fr-FR'}}</div>
-      <div><strong>Type de balle :</strong> {{formule.typeBalle}}</div>
-    </mat-card-content>
-    <!--  <mat-card-actions>-->
-    <!--    <button mat-button>En savoir plus</button>-->
-    <!--    <button mat-button>Réserver</button>-->
-    <!--  </mat-card-actions>-->
-    <mat-card-footer>
-      <p>Tarif : {{formule.tarif}}€</p>
-      <p>
-        <button mat-raised-button color="primary">Editer</button>
-      </p>
-    </mat-card-footer>
-  </mat-card>
-</div>
-
-
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor='let formule of formules | async'>
+    <mat-card class="card-container">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <!--      <img src="chemin/vers/image.png" alt="Image du cours">-->
+        </div>
+        <mat-card-title-group>
+          <mat-card-title>Cours {{formule.categorieAge}} - {{formule.nombreSeanceHebdomadaire}}/sem - Groupe
+            de {{formule.effectifMaximum}}</mat-card-title>
+          <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de{{formule.dureeSeanceMinuteCours}}mins
+          </mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <!--  <img mat-card-image src="chemin/vers/image2.png" alt="Image illustrative">-->
+      <mat-card-content>
+        <div><strong>Début des cours :</strong> {{formule.dateDebut | date:'dd MMMM yyyy' : 'fr-FR'}}</div> <!--TODO FIX-->
+        <div><strong>Fin des cours :</strong> {{formule.dateFin | date:'dd MMMM yyyy' : 'fr-FR'}}</div>
+        <div><strong>Type de balle :</strong> {{formule.typeBalle}}</div>
+      </mat-card-content>
+      <!--  <mat-card-actions>-->
+      <!--    <button mat-button>En savoir plus</button>-->
+      <!--    <button mat-button>Réserver</button>-->
+      <!--  </mat-card-actions>-->
+      <mat-card-footer>
+        <p>Tarif : {{formule.tarif}}€</p>
+        <p>
+          <button mat-raised-button color="primary">Editer</button>
+        </p>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
