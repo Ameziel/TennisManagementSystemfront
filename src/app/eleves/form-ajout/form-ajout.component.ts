@@ -31,7 +31,6 @@ export class FormAjoutComponent {
   };
 
   handleSaveEleve() {
-    console.log(this.ajoutEleveFormGroup.get('dateDeNaissance')?.value);
     let eleve:Eleve = this.ajoutEleveFormGroup.value;
     this.eleveService.saveEleve(eleve).subscribe(
       {
