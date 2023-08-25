@@ -26,6 +26,11 @@ const routes: Routes = [
     path: 'groupescours',
     loadChildren: () =>
       import('./groupescours/groupescours.module').then((m) => m.GroupescoursModule),
+  },
+  {
+    path: 'prestationscours',
+    loadChildren: () =>
+      import('./prestationscours/prestationscours.module').then((m) => m.PrestationscoursModule),
   }
 ];
 
