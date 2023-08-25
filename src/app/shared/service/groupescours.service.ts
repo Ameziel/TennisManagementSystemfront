@@ -25,7 +25,7 @@ export class GroupescoursService {
   }
 
   public updateGroupeCours(groupeCours: GroupeCours): Observable<GroupeCours> {
-    return this.http.post<GroupeCours>(environment.backendHost + "/groupescours", groupeCours);
+    return this.http.put<GroupeCours>(environment.backendHost + "/groupescours", groupeCours);
   }
 
   public deleteGroupeCours(id: string) {
