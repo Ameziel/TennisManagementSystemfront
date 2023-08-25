@@ -1,0 +1,54 @@
+<h1>Inscription à une formule de Cours</h1>
+<form class="form-container" [formGroup]="ajoutInscriptionFormuleGroup" (ngSubmit)="handleSaveInscriptionFormule()">
+<div class="ref-container">
+  <mat-form-field>
+    <mat-label>Choisir l'élève</mat-label>
+    <mat-select formControlName="referenceEleve">
+      <mat-option [value]="eleve.id" *ngFor="let eleve of listEleves">{{eleve.nom}} - {{eleve.prenom}}</mat-option> <!-- TODO le order by ce truc -->
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Choisir le groupe de cours</mat-label>
+    <mat-select formControlName="referenceGroupeCours">
+      <mat-option [value]="groupeCours.id" *ngFor="let groupeCours of listGroupesCours">{{groupeCours.libelle}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Choisir la formule</mat-label>
+    <mat-select formControlName="referenceFormuleCours">
+      <mat-option [value]="formulecours.id" *ngFor="let formulecours of listFormulesCours">Cours {{formulecours.categorieAge}} - {{formulecours.nombreSeanceHebdomadaire}}/sem - Groupe
+        de {{formulecours.effectifMaximum}}
+        {{formulecours.nombreSeanceTotal}}séances de{{formulecours.dureeSeanceMinuteCours}}mins</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+  <mat-form-field>
+    <mat-label>Montant reçu</mat-label>
+    <input matInput type="number" name="montantPercu" min="1" max="5000"
+           formControlName="montantPercu" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Moyen de paiement</mat-label>
+    <mat-select formControlName="moyenPaiement">
+      <mat-option [value]="option" *ngFor="let option of moyensPaiement">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Date du paiement</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="datePaiement">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Commentaire</mat-label>
+    <textarea matInput placeholder="Renseignement sur le paiement" formControlName="notePaiement"></textarea>
+  </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Ajouter l'inscripton</button>
+</form>
