@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'inscriptionsformule',
     loadChildren: () =>
       import('./inscriptionsformule/inscriptionsformule.module').then((m) => m.InscriptionsformuleModule),
+  },
+  {
+    path: 'groupescours',
+    loadChildren: () =>
+      import('./groupescours/groupescours.module').then((m) => m.GroupescoursModule),
   }
 ];
 
