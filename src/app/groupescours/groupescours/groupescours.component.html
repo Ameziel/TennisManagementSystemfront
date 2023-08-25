@@ -1,0 +1,36 @@
+<h1>Liste des groupes</h1>
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor='let groupeCours of groupesCours | async'>
+    <mat-card class="card-container">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <!--      <img src="chemin/vers/image.png" alt="Image du cours">-->
+        </div>
+        <mat-card-title-group>
+          <mat-card-title>{{groupeCours.libelle}}</mat-card-title>
+          <mat-card-subtitle>
+          </mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <!--  <img mat-card-image src="chemin/vers/image2.png" alt="Image illustrative">-->
+      <mat-card-content>
+
+      </mat-card-content>
+      <!--  <mat-card-actions>-->
+      <!--    <button mat-button>En savoir plus</button>-->
+      <!--    <button mat-button>Réserver</button>-->
+      <!--  </mat-card-actions>-->
+      <mat-card-footer>
+        <div *ngIf="groupeCours.actif === true; else inactifParaphrase">
+          État du groupe : Actif
+        </div>
+        <ng-template #inactifParaphrase>
+          État du groupe : Inactif
+        </ng-template>
+        <p>
+          <button mat-raised-button color="primary">Editer</button>
+        </p>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
