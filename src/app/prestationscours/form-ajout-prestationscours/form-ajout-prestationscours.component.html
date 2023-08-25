@@ -1,0 +1,44 @@
+<h1>Ajouter une Prestation de Cours</h1>
+<form class="form-container" [formGroup]="ajoutPrestationCoursFormuleGroup" (ngSubmit)="handleSavePrestationCours()">
+  <!--  <div class="ref-container">-->
+  <mat-form-field>
+    <mat-label>Choisir le moniteur de la prestation</mat-label>
+    <mat-select formControlName="referenceMoniteur">
+      <mat-option [value]="moniteur.id" *ngFor="let moniteur of listMoniteurs">{{moniteur.nom}}
+        - {{moniteur.prenom}}</mat-option> <!-- TODO le order by ce truc -->
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Choisir le groupe de la prestation</mat-label>
+    <mat-select formControlName="referenceGroupe">
+      <mat-option [value]="groupeCours.id" *ngFor="let groupeCours of listGroupesCours">{{groupeCours.libelle}}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Date de la prestation</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="datePrestation">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!--  </div>-->
+  <mat-form-field>
+    <mat-label>Durée de la séance</mat-label>
+    <mat-select formControlName="dureeSeanceMinutePrestation">
+      <mat-option value="60">1H00</mat-option>
+      <mat-option value="90">1H30</mat-option>
+      <mat-option value="120">2H00</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Commentaire</mat-label>
+      <textarea matInput placeholder="Commentaire sur la séance" formControlName="commentaire"></textarea>
+    </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Ajouter la prestation</button>
+</form>
