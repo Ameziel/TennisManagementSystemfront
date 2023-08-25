@@ -22,9 +22,9 @@ export class FormAjoutComponent {
         prenom: this.formBuilder.control(null, [Validators.required]),
         nom: this.formBuilder.control(null, [Validators.required]),
         genre: this.formBuilder.control(null),
-        email: this.formBuilder.control(null, [Validators.required]),   //TODO validator email telephone
+        email: this.formBuilder.control(null, [Validators.required,Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
         telephone: this.formBuilder.control(null, [Validators.required]),
-        dateDeNaissance: this.formBuilder.control([Validators.required]),
+        dateDeNaissance: this.formBuilder.control([Validators.required,Validators.pattern("^[0-9]{10}$"), Validators.minLength(10), Validators.maxLength(10)]),
         details: this.formBuilder.control(null),
         actif: this.formBuilder.control(false),
       })
