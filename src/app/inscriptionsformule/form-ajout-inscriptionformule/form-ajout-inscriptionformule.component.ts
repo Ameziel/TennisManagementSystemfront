@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InscriptionsformuleService} from "../../shared/service/inscriptionsformule.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ElevesService} from "../../shared/service/eleves.service";
@@ -14,12 +14,12 @@ import {Formulecours} from "../../shared/models/formuleCours.model";
   templateUrl: './form-ajout-inscriptionformule.component.html',
   styleUrls: ['./form-ajout-inscriptionformule.component.css']
 })
-export class FormAjoutInscriptionformuleComponent {
+export class FormAjoutInscriptionformuleComponent implements OnInit {
   ajoutInscriptionFormuleGroup!: FormGroup;
 
   readonly eleves$ = this.eleveService.getAllEleves();
-  readonly groupesCours = this.groupeCoursService.getAllGroupesCours();
-  readonly formules = this.formuleCoursService.getAllFormules();
+  readonly groupesCours$ = this.groupeCoursService.getAllGroupesCours();
+  readonly formules$ = this.formuleCoursService.getAllFormules();
 
   listEleves: Eleve[] = [];
   listGroupesCours: GroupeCours[] = [];
