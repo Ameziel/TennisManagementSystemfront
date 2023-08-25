@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'formulescours',
     loadChildren: () =>
       import('./formulescours/formulescours.module').then((m) => m.FormulescoursModule),
+  },
+  {
+    path: 'inscriptionsformule',
+    loadChildren: () =>
+      import('./inscriptionsformule/inscriptionsformule.module').then((m) => m.InscriptionsformuleModule),
   }
 ];
 
