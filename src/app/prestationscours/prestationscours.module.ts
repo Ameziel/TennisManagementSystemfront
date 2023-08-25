@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PrestationscoursComponent} from './prestationscours/prestationscours.component';
-import {FormAjoutPrestationscoursComponent} from './form-ajout-prestationscours/form-ajout-prestationscours.component';
+import {FormAjoutPrestationscoursComponent} from './form-ajout-prestationcours/form-ajout-prestationscours.component';
 import {RouterModule, Routes} from "@angular/router";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";

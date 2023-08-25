@@ -10,8 +10,8 @@ import {MoniteursService} from "../../shared/service/moniteurs.service";
 
 @Component({
   selector: 'app-form-ajout-prestationscours',
-  templateUrl: './form-ajout-prestationscours.component.html',
-  styleUrls: ['./form-ajout-prestationscours.component.css']
+  templateUrl: './form-ajout-prestationcours.component.html',
+  styleUrls: ['./form-ajout-prestationcours.component.css']
 })
 export class FormAjoutPrestationscoursComponent implements OnInit {
   ajoutPrestationCoursFormuleGroup!: FormGroup;
