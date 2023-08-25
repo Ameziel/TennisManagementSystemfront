@@ -1,3 +1,7 @@
+h1 {
+  text-align: center;
+  margin: 2% 0% 1% 0%;
+}
 .demo-table {
   width: 100%;
 }
@@ -23,8 +27,5 @@
   font-weight: bold;
 }
 .table-container {
-  border: solid 1px;
   margin: 2% auto;
-  width: 95%;
-  height: 95%;
 }

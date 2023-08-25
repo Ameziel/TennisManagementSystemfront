@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  margin: 2% 0% 1% 0%;
 }
 /*.full-container { used with flex but here I used mat-grid*/
 /*  display: flex;*/
