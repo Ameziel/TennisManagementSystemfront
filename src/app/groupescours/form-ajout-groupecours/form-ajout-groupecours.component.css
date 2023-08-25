@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+  margin-top: 2%;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2% auto;
+  width: 50%;
+  align-items: center;
+}
