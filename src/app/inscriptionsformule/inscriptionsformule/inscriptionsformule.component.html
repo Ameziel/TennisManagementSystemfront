@@ -1,0 +1,31 @@
+<h1>Liste des Inscriptions aux formules</h1>
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor='let inscriptionFormule of inscriptionsFormule$ | async'>
+    <mat-card class="card-container">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <!--      <img src="chemin/vers/image.png" alt="Image du cours">-->
+        </div>
+        <mat-card-title-group>
+          <mat-card-title>Référence de l'élève :</mat-card-title>
+          <mat-card-subtitle>
+            {{inscriptionFormule.referenceEleve}}
+          </mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <!--  <img mat-card-image src="chemin/vers/image2.png" alt="Image illustrative">-->
+      <mat-card-content>
+        <div><strong>Réference du groupe :</strong> {{inscriptionFormule.referenceGroupeCours}}</div> <!-- TODO Je pense qu'il faut importer les autres services et faire les getById-->
+        <div><strong>Nom de la formule  :</strong> {{inscriptionFormule.referenceFormuleCours}}</div>
+      </mat-card-content>
+
+      <mat-card-footer>
+        <div class="paiement-container">
+        <div>Paiement le :<strong>{{inscriptionFormule.datePaiement | date:'dd MMMM yyyy' : 'fr-FR'}}</strong></div>
+        <p>Montant perçu : <strong>{{inscriptionFormule.montantPercu}}€</strong></p>
+        </div>
+          <button mat-raised-button color="primary">Editer</button>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

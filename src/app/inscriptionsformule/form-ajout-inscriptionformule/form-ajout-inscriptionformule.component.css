@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 2px green;
+  width: 60%;
+  margin: 2% auto;
+}
+.ref-container {
+  display: flex;
+  justify-content: space-between;
+}
+mat-form-field {
+  margin: 1% auto 1%;
+  width: 80%;
+}

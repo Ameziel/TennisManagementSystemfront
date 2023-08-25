@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FormulecoursService} from "../../shared/service/formulecours.service";
-import {CategorieAge, Formulecours, Niveau, Periode, TypeBalle} from "../../shared/models/formulecours.model";
+import {FormulescoursService} from "../../shared/service/formulescours.service";
+import {CategorieAge, Formulecours, Niveau, Periode, TypeBalle} from "../../shared/models/formuleCours.model";
 
 @Component({
   selector: 'app-form-ajout-formulecours',
@@ -17,7 +17,7 @@ export class FormAjoutFormulecoursComponent {
   niveaux = Object.values(Niveau);
 
 
-  constructor(private formuleCoursService: FormulecoursService, private formBuilder: FormBuilder) {
+  constructor(private formuleCoursService: FormulescoursService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -57,6 +57,5 @@ export class FormAjoutFormulecoursComponent {
     {
       return Array(number);
     }
-
   }
 }

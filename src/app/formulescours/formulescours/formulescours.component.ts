@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormulecoursService} from "../../shared/service/formulecours.service";
+import {FormulescoursService} from "../../shared/service/formulescours.service";
 import {Observable} from "rxjs";
-import {Formulecours} from "../../shared/models/formulecours.model";
+import {Formulecours} from "../../shared/models/formuleCours.model";
 
 @Component({
   selector: 'app-formulescours',
@@ -11,7 +11,7 @@ import {Formulecours} from "../../shared/models/formulecours.model";
 export class FormulescoursComponent implements OnInit {
   formules!: Observable<Array<Formulecours>>;
 
-  constructor(private formulesCoursService: FormulecoursService) {
+  constructor(private formulesCoursService: FormulescoursService) {
   }
 
   ngOnInit(): void {
