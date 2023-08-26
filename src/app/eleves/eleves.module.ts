@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ElevesComponent } from './eleves/eleves.component';
-import { Routes, RouterModule } from '@angular/router';
-import { FormAjoutComponent } from './form-ajout/form-ajout.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ElevesComponent} from './eleves/eleves.component';
+import {Routes, RouterModule} from '@angular/router';
+import {FormAjoutComponent} from './form-ajout/form-ajout.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
+import {FormEditComponent} from "./form-edit/form-edit.component";
 
 const routes: Routes = [
   {
@@ -29,7 +31,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ElevesComponent,
-    FormAjoutComponent
+    FormAjoutComponent,
+    FormEditComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +49,8 @@ const routes: Routes = [
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
+    MatDialogModule,
   ]
 })
-export class ElevesModule { }
+export class ElevesModule {
+}
