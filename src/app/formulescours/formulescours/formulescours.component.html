@@ -9,13 +9,13 @@
         <mat-card-title-group>
           <mat-card-title>Cours {{formule.categorieAge}} - {{formule.nombreSeanceHebdomadaire}}/sem - Groupe
             de {{formule.effectifMaximum}}</mat-card-title>
-          <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de{{formule.dureeSeanceMinuteCours}}mins <!-- TODO FIX minutes pas affichées ? -->
+          <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de{{formule.dureeSeanceMinuteFormuleCours}}mins
           </mat-card-subtitle>
         </mat-card-title-group>
       </mat-card-header>
       <!--  <img mat-card-image src="chemin/vers/image2.png" alt="Image illustrative">-->
       <mat-card-content>
-        <div><strong>Début des cours :</strong> {{formule.dateDebut | date:'dd MMMM yyyy' : 'fr-FR'}}</div> <!--TODO FIX-->
+        <div><strong>Début des cours :</strong> {{formule.dateDebut | date:'dd MMMM yyyy' : 'fr-FR'}}</div>
         <div><strong>Fin des cours :</strong> {{formule.dateFin | date:'dd MMMM yyyy' : 'fr-FR'}}</div>
         <div><strong>Type de balle :</strong> {{formule.typeBalle}}</div>
       </mat-card-content>
