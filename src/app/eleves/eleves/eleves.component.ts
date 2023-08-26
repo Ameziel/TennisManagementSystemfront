@@ -1,26 +1,37 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {ElevesService} from "../../shared/service/eleves.service";
 import {Eleve} from "../../shared/models/eleve.model";
+import {MatDialog} from '@angular/material/dialog';
+import {FormEditComponent} from "../form-edit/form-edit.component";
 
 @Component({
   selector: 'app-eleves',
   templateUrl: './eleves.component.html',
   styleUrls: ['./eleves.component.css']
 })
-export class ElevesComponent implements AfterViewInit {
-  displayedColumns: string[] = ["nom","prenom", "genre", "telephone","email", "dateDeNaissance", "edit"];
+export class ElevesComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ["nom", "prenom", "genre", "telephone", "email", "dateDeNaissance", "edit"];
   // dataSource: MatTableDataSource<Eleve>;
-  readonly eleves$ = this.eleveService.getAllEleves();
+  eleves: Eleve[] = [];
+  //readonly eleves$ = this.eleveService.getAllEleves(); permet de récupérer tous les élèves mais pas de faire un refresh automatique comme la v2
+                                                        //avec le ngOnIint et le subscribe
 
 
   // @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   // @ViewChild(MatSort) sort: MatSort | undefined;
-  constructor(private eleveService : ElevesService) {
+  constructor(private eleveService: ElevesService,
+              private dialog: MatDialog) {
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(this.eleves);
+  }
+
+  ngOnInit(): void {
+    this.eleveService.getAllEleves().subscribe(
+      e => this.eleves = e
+    )
   }
 
 
@@ -34,10 +45,18 @@ export class ElevesComponent implements AfterViewInit {
   applyFilter(event: Event) {
     // const filterValue = (event.target as HTMLInputElement).value;
     // this.dataSource.filter = filterValue.trim().toLowerCase();
-
     //   // if (this.dataSource.paginator) {
     //   //   this.dataSource.paginator.firstPage();
     // }
+  }
+
+  openDialog(eleve: Eleve) {
+    const dialogRef = this.dialog.open(FormEditComponent, {width: "1100px", height: "500px", data: eleve});
+    dialogRef.afterClosed().subscribe(() => {  //avoid
+      this.eleveService.getAllEleves().subscribe(
+        e => this.eleves = e
+      )
+    });
   }
 }
 
