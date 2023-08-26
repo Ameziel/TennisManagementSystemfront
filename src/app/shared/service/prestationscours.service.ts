@@ -19,8 +19,8 @@ export class PrestationscoursService {
     return this.http.get<PrestationCours>(environment.backendHost + "/prestationscours/" + id);
   }
 
-  public savePrestationCours(groupeCours: PrestationCours): Observable<PrestationCours> {
-    return this.http.post<PrestationCours>(environment.backendHost + "/prestationscours/" + groupeCours.id, groupeCours);
+  public savePrestationCours(prestationCours: PrestationCours): Observable<PrestationCours> {
+    return this.http.post<PrestationCours>(environment.backendHost + "/prestationscours/" + prestationCours.id, prestationCours);
   }
 
   public updatePrestationCours(prestationCours: PrestationCours): Observable<PrestationCours> {
@@ -28,6 +28,6 @@ export class PrestationscoursService {
   }
 
   public deletePrestationCours(id: string) {
-    return this.http.delete(environment.backendHost + "/groupescours/" + id);
+    return this.http.delete(environment.backendHost + "/prestationscours/" + id);
   }
 }
