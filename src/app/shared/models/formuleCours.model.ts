@@ -4,35 +4,39 @@ export enum CategorieAge {
   Adolescent = "ADOLESCENT",
   Adulte = "ADULTE",
 }
-export enum Periode{
+
+export enum Periode {
   Ete = "ETE",
-    Hiver = "HIVER",
-    Annee = "ANNEE"
+  Hiver = "HIVER",
+  Annee = "ANNEE"
 }
+
 export enum TypeBalle {
   Rouge = "ROUGE",
   Orange = "ORANGE",
   Verte = "VERTE",
   Jaune = "JAUNE"
 }
+
 export enum Niveau {
   Loisir = "LOISIR",
   QuatriemeSerie = "QUATRIEME_SERIE",
   TroisiemeSerie = "TROISIEME_SERIE",
   DeuxiemeSerie = "DEUXIEME_SERIE"
 }
+
 export interface Formulecours {
   id: string;
-  effectifMaximum : number;
-  nombreSeanceTotal : number;
-  nombreSeanceHebdomadaire : number;
-  dureeSeanceMinuteCours : number;
+  effectifMaximum: number;
+  nombreSeanceTotal: number;
+  nombreSeanceHebdomadaire: number;
+  dureeSeanceMinuteFormuleCours: number;
   tarif: number;
-  dateDebut : string;
-  dateFin : string;
-  categorieAge : CategorieAge;
-  periode : Periode;
+  dateDebut: string;
+  dateFin: string;
+  categorieAge: CategorieAge;
+  periode: Periode;
   typeBalle: TypeBalle;
-  niveau : Niveau;
+  niveau: Niveau;
   actif: boolean;
 }
