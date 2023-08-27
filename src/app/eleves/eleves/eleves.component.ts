@@ -6,6 +6,7 @@ import {ElevesService} from "../../shared/service/eleves.service";
 import {Eleve} from "../../shared/models/eleve.model";
 import {MatDialog} from '@angular/material/dialog';
 import {FormEditComponent} from "../form-edit/form-edit.component";
+import {FormAjoutComponent} from "../form-ajout/form-ajout.component";
 
 @Component({
   selector: 'app-eleves',
@@ -17,7 +18,7 @@ export class ElevesComponent implements AfterViewInit, OnInit {
   // dataSource: MatTableDataSource<Eleve>;
   eleves: Eleve[] = [];
   //readonly eleves$ = this.eleveService.getAllEleves(); permet de récupérer tous les élèves mais pas de faire un refresh automatique comme la v2
-                                                        //avec le ngOnIint et le subscribe
+  //avec le ngOnIint et le subscribe
 
 
   // @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -50,8 +51,17 @@ export class ElevesComponent implements AfterViewInit, OnInit {
     // }
   }
 
-  openDialog(eleve: Eleve) {
-    const dialogRef = this.dialog.open(FormEditComponent, {width: "1100px", height: "500px", data: eleve});
+  openEditEleveFormDialog(eleve: Eleve) {
+    const dialogRef = this.dialog.open(FormEditComponent, {width: "1100px", height: "80vh", data: eleve});
+    dialogRef.afterClosed().subscribe(() => {  //avoid
+      this.eleveService.getAllEleves().subscribe(
+        e => this.eleves = e
+      )
+    });
+  }
+
+  openAjoutEleveFormDialog() {
+    const dialogRef = this.dialog.open(FormAjoutComponent, {width: "1100px", height: "80vh"});
     dialogRef.afterClosed().subscribe(() => {  //avoid
       this.eleveService.getAllEleves().subscribe(
         e => this.eleves = e
