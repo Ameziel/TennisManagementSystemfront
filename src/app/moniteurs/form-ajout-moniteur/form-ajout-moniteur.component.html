@@ -1,5 +1,5 @@
 <h1>Ajouter un Moniteur</h1>
-<form class="form-container"  [formGroup]="ajoutMoniteurFormGroup" (ngSubmit)="handleSaveEleve()">
+<form class="form-container"  [formGroup]="ajoutMoniteurFormGroup" (ngSubmit)="handleSaveMoniteur()">
 
   <mat-form-field>
     <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
@@ -29,5 +29,5 @@
 
   <mat-checkbox formControlName="actif">Actif</mat-checkbox>
 
-  <button mat-raised-button color="primary" type="submit">Créer Moniteur</button>
+  <button mat-raised-button color="primary" type="submit">Ajouter</button>
 </form>
