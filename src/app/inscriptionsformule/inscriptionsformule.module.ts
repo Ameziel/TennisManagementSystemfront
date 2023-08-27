@@ -14,6 +14,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
+import { FormEditInscriptionsformuleComponent } from './form-edit-inscriptionsformule/form-edit-inscriptionsformule.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -31,6 +33,7 @@ const routes: Routes = [
   declarations: [
     InscriptionsformuleComponent,
     FormAjoutInscriptionformuleComponent,
+    FormEditInscriptionsformuleComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +47,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatIconModule,
     MatNativeDateModule,
+    MatDialogModule,
   ]
 })
 export class InscriptionsformuleModule {
