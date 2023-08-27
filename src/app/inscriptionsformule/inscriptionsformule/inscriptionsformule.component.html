@@ -1,5 +1,5 @@
 <h1>Liste des Inscriptions</h1>
-<button mat-raised-button color="primary" (click)="openAjoutFormuleFormDialog()">Ajouter un élève</button>
+<button mat-raised-button color="primary" (click)="openAjoutFormuleFormDialog()">Faire une inscription</button>
 <mat-grid-list cols="4" rowHeight="1:1">
   <mat-grid-tile *ngFor='let inscriptionFormule of inscriptionsFormule$ | async'>
     <mat-card class="card-container">
