@@ -10,6 +10,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
+import { FormEditGroupecoursComponent } from './form-edit-groupecours/form-edit-groupecours.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -25,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     GroupescoursComponent,
-    FormAjoutGroupecoursComponent
+    FormAjoutGroupecoursComponent,
+    FormEditGroupecoursComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ const routes: Routes = [
     MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class GroupescoursModule { }
