@@ -1,4 +1,5 @@
 <h1>Liste des Moniteurs</h1>
+<button mat-raised-button color="primary" (click)="openAjoutMoniteurFormDialog()">Ajouter un moniteur</button>
 <mat-form-field>
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -6,7 +7,7 @@
 
 <div class="table-container">
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="(moniteurs$ | async)!" matSort>
+    <table mat-table [dataSource]="(moniteurs)!" matSort>
 
       <ng-container matColumnDef="nom">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
@@ -36,8 +37,10 @@
 
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Editer </th>
-        <td mat-cell *matCellDef="let row"> <mat-icon>info</mat-icon>
-          <!--        //TODO rendre le lien cliquable et ouvrir la page edit eleve-->
+        <td mat-cell *matCellDef="let row">
+          <button mat-button color="primary" (click)="openEditMoniteurFormDialog(row)">
+            <mat-icon>info</mat-icon>
+          </button>
         </td>
       </ng-container>
 

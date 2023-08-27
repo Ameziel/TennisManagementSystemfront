@@ -1,5 +1,5 @@
-<h1>Ajouter un élève</h1>
-<form class="form-container"  [formGroup]="ajoutEleveFormGroup" (ngSubmit)="handleSaveEleve()">
+<h1>Éditer un élève</h1>
+<form class="form-container"  [formGroup]="editEleveFormGroup" (ngSubmit)="handleEditEleve()">
 
   <mat-radio-group formControlName="genre" aria-label="Select an option" >
     <mat-radio-button value="F" id="F" name="genre" checked>F</mat-radio-button>
@@ -37,5 +37,5 @@
 
     <mat-checkbox formControlName="actif">Actif</mat-checkbox>
 
-    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
+    <button mat-raised-button color="primary" type="submit">Éditer</button>
   </form>

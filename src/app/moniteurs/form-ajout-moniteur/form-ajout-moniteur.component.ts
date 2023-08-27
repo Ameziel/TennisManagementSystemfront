@@ -26,7 +26,7 @@ export class FormAjoutMoniteurComponent {
       })
   };
 
-  handleSaveEleve() {
+  handleSaveMoniteur() {
     let moniteur:Moniteur = this.ajoutMoniteurFormGroup.value;
     this.moniteurService.saveMoniteur(moniteur).subscribe(
       {

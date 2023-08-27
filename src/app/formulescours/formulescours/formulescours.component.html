@@ -1,4 +1,5 @@
 <h1>Liste des Formules</h1>
+<button mat-raised-button color="primary" (click)="openAjoutFormuleCoursFormDialog()">Ajouter une formule</button>
 <mat-grid-list cols="4" rowHeight="1:1">
   <mat-grid-tile *ngFor='let formule of formules | async'>
     <mat-card class="card-container">
@@ -9,7 +10,7 @@
         <mat-card-title-group>
           <mat-card-title>Cours {{formule.categorieAge}} - {{formule.nombreSeanceHebdomadaire}}/sem - Groupe
             de {{formule.effectifMaximum}}</mat-card-title>
-          <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de{{formule.dureeSeanceMinuteFormuleCours}}mins
+          <mat-card-subtitle>{{formule.nombreSeanceTotal}}séances de {{formule.dureeSeanceMinuteFormuleCours}} mins
           </mat-card-subtitle>
         </mat-card-title-group>
       </mat-card-header>
@@ -26,7 +27,9 @@
       <mat-card-footer>
         <p>Tarif : {{formule.tarif}}€</p>
         <p>
-          <button mat-raised-button color="primary">Editer</button>
+          <button mat-raised-button color="primary" (click)="openEditFormuleCoursFormDialog(formule)">
+            Editer
+          </button>
         </p>
       </mat-card-footer>
     </mat-card>

@@ -12,15 +12,18 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class FormEditComponent implements OnInit {
   maxDate: Date = new Date();
-  ajoutEleveFormGroup!: FormGroup;
+  editEleveFormGroup!: FormGroup;
 
-  constructor(private eleveService: ElevesService, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) private data: Eleve, private dialogRef: MatDialogRef<FormEditComponent>) {
+  constructor(private eleveService: ElevesService,
+              private formBuilder: FormBuilder,
+              @Inject(MAT_DIALOG_DATA) private data: Eleve,
+              private dialogRef: MatDialogRef<FormEditComponent>) {
   }
 
   ngOnInit(): void {
-    this.ajoutEleveFormGroup = this.formBuilder.group(
+    this.editEleveFormGroup = this.formBuilder.group(
       {
-        id: this.formBuilder.control(null,[Validators.required]),
+        id: this.formBuilder.control(null, [Validators.required]),
         prenom: this.formBuilder.control(null, [Validators.required]),
         nom: this.formBuilder.control(null, [Validators.required]),
         genre: this.formBuilder.control(null),
@@ -30,11 +33,11 @@ export class FormEditComponent implements OnInit {
         details: this.formBuilder.control(null),
         actif: this.formBuilder.control(false),
       })
-    this.ajoutEleveFormGroup.setValue(this.data);
+    this.editEleveFormGroup.setValue(this.data);
   };
 
-  handleSaveEleve() {
-    let eleve: Eleve = this.ajoutEleveFormGroup.value;
+  handleEditEleve() {
+    let eleve: Eleve = this.editEleveFormGroup.value;
     this.eleveService.updateEleve(eleve).subscribe(
       {
         next: data => {

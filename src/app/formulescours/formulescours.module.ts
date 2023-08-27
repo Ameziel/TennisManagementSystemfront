@@ -14,6 +14,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
+import { FormEditFormulecoursComponent } from './form-edit-formulecours/form-edit-formulecours.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -29,7 +31,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     FormulescoursComponent,
-    FormAjoutFormulecoursComponent
+    FormAjoutFormulecoursComponent,
+    FormEditFormulecoursComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ const routes: Routes = [
     MatSelectModule,
     MatIconModule,
     MatNativeDateModule,
+    MatDialogModule,
   ]
 })
 export class FormulescoursModule { }
