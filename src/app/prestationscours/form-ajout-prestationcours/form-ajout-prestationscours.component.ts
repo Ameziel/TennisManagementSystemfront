@@ -52,7 +52,7 @@ export class FormAjoutPrestationscoursComponent implements OnInit {
     this.prestationscoursService.savePrestationCours(prestationCours).subscribe(
       {
         next: data => {
-          alert("L'inscription a bien été enregistrée !");
+          alert("La prestation a bien été enregistrée !");
           this.ajoutPrestationCoursFormuleGroup.reset();
         },
         error: err => {
@@ -61,8 +61,4 @@ export class FormAjoutPrestationscoursComponent implements OnInit {
       }
     );
   }
-}
-
-{
-
 }
