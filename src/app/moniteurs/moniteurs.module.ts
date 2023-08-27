@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
+import { FormEditMoniteurComponent } from './form-edit-moniteur/form-edit-moniteur.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 const routes: Routes = [
   {
@@ -25,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MoniteursComponent,
-    FormAjoutMoniteurComponent
+    FormAjoutMoniteurComponent,
+    FormEditMoniteurComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ const routes: Routes = [
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
   ]
 })
 export class MoniteursModule { }
