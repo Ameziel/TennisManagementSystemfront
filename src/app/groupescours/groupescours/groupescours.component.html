@@ -1,4 +1,5 @@
 <h1>Liste des groupes</h1>
+<button mat-raised-button color="primary" (click)="openAjoutGroupeCoursFormDialog()">Ajouter un Groupe</button>
 <mat-grid-list cols="4" rowHeight="1:1">
   <mat-grid-tile *ngFor='let groupeCours of groupesCours | async'>
     <mat-card class="card-container">
@@ -28,7 +29,7 @@
           État du groupe : Inactif
         </ng-template>
         <p>
-          <button mat-raised-button color="primary">Editer</button>
+          <button mat-button color="primary" (click)="openEditGroupeCoursFormDialog(groupeCours)">Editer</button>
         </p>
       </mat-card-footer>
     </mat-card>
