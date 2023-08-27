@@ -20,12 +20,11 @@ export class GroupescoursService {
     return this.http.get<GroupeCours>(environment.backendHost + "/groupescours/" + id);
   }
 
-  public saveGroupeCours(groupeCours: GroupeCours): Observable<GroupeCours> {
-    return this.http.post<GroupeCours>(environment.backendHost + "/groupescours/" + groupeCours.id, groupeCours);
-  }
-
   public updateGroupeCours(groupeCours: GroupeCours): Observable<GroupeCours> {
-    return this.http.put<GroupeCours>(environment.backendHost + "/groupescours", groupeCours);
+    return this.http.put<GroupeCours>(environment.backendHost + "/groupescours/" + groupeCours.id, groupeCours);
+  }
+  public saveGroupeCours(groupeCours: GroupeCours): Observable<GroupeCours> {
+    return this.http.post<GroupeCours>(environment.backendHost + "/groupescours", groupeCours);
   }
 
   public deleteGroupeCours(id: string) {
