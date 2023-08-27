@@ -1,7 +1,21 @@
 h1 {
   text-align: center;
-  margin-top: 2%;
+  margin: 2% 0% 1% 0%;
 }
+.paiement-container {
+  display: flex;
+}
+mat-grid-tile {
+  background: lightblue;
+}
+mat-card {
+  border: solid 1px chocolate;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
 mat-card-footer {
   text-align: center;
 }
