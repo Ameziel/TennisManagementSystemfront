@@ -11,6 +11,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatButtonModule} from "@angular/material/button";
+import { FormEditPrestationcoursComponent } from './form-edit-prestationcours/form-edit-prestationcours.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -27,7 +29,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PrestationscoursComponent,
-    FormAjoutPrestationscoursComponent
+    FormAjoutPrestationscoursComponent,
+    FormEditPrestationcoursComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatDialogModule,
   ]
 })
 export class PrestationscoursModule { }
