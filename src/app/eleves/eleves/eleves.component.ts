@@ -14,7 +14,7 @@ import {FormAjoutComponent} from "../form-ajout/form-ajout.component";
   styleUrls: ['./eleves.component.css']
 })
 export class ElevesComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ["nom", "prenom", "genre", "telephone", "email", "dateDeNaissance", "edit"];
+  displayedColumns: string[] = ["nom", "prenom", "genre", "telephone", "email", "dateDeNaissance", "edit", "supprimer"];
   // dataSource: MatTableDataSource<Eleve>;
   eleves: Eleve[] = [];
   //readonly eleves$ = this.eleveService.getAllEleves(); permet de récupérer tous les élèves mais pas de faire un refresh automatique comme la v2
@@ -67,6 +67,21 @@ export class ElevesComponent implements AfterViewInit, OnInit {
         e => this.eleves = e
       )
     });
+  }
+
+  HandleDeleteEleve(eleve: Eleve) {
+    let confirmation = confirm("Voulez vous vraiment supprimer cet élève ?");
+    if(!confirmation) return;
+    this.eleveService.deleteEleve(eleve.id).subscribe(
+      {
+        next : (resp : Object) => {
+          this.eleveService.getAllEleves();
+        },
+        error : err => {
+          alert("Suppression impossible, l'élément est peut être relié à d'autres dans l'application.");
+        }
+      }
+    )
   }
 }
 
