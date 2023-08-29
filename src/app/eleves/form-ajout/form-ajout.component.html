@@ -8,6 +8,8 @@
 
     <mat-form-field>
       <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
+      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error>
+<!--      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error> si différentes erreurs -->
     </mat-form-field>
 
     <mat-form-field>
