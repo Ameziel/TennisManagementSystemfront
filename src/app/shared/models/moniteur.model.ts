@@ -5,7 +5,6 @@ enum Qualification {
   Educateur = "EDUCATEUR",
   Entraineur = "ENTRAINEUR"
 }
-
 export interface Moniteur {
   id: string;
   prenom: string;
