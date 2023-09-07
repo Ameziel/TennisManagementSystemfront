@@ -4,6 +4,7 @@ import {CategorieAge, Formulecours, Niveau, Periode, TypeBalle} from "../../shar
 import {FormulescoursService} from "../../shared/service/formulescours.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Eleve} from "../../shared/models/eleve.model";
+import {EFFECTIF_MAXIMUM} from "../../shared/constants/effectif";
 
 @Component({
   selector: 'app-form-edit-formulecours',
@@ -17,6 +18,7 @@ export class FormEditFormulecoursComponent {
   periodes = Object.values(Periode);
   typesBalles = Object.values(TypeBalle);
   niveaux = Object.values(Niveau);
+  readonly effectifMaximum = EFFECTIF_MAXIMUM;
 
 
   constructor(private formuleCoursService: FormulescoursService,
@@ -32,7 +34,7 @@ export class FormEditFormulecoursComponent {
         effectifMaximum: this.formBuilder.control(null, [Validators.required]),
         nombreSeanceTotal: this.formBuilder.control(null, [Validators.required]),
         nombreSeanceHebdomadaire: this.formBuilder.control(null, [Validators.required]),
-        dureeSeanceMinuteFormuleCours: this.formBuilder.control(60, [Validators.required]),
+        dureeSeanceMinuteFormuleCours: this.formBuilder.control(null, [Validators.required]),
         tarif: this.formBuilder.control(null, [Validators.required]), //On utilisera un Math.round au cas ou
         dateDebut: this.formBuilder.control([Validators.required]),
         dateFin: this.formBuilder.control(null, [Validators.required]),
@@ -43,6 +45,7 @@ export class FormEditFormulecoursComponent {
         actif: this.formBuilder.control(null, [Validators.required]),
       })
     this.editFormuleCoursFormGroup.setValue(this.data);
+    console.log(this.data);
   };
 
   handleEditFormuleCours() {
@@ -58,11 +61,5 @@ export class FormEditFormulecoursComponent {
         }
       }
     );
-  }
-
-  iterationCount(number: number): Array<number> {
-    {
-      return Array(number);
-    }
   }
 }

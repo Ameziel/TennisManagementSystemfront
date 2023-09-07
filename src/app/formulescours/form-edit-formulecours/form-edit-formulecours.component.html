@@ -4,7 +4,7 @@
   <mat-form-field>
     <mat-label>Nombre d'élèves de la formule</mat-label>
     <mat-select formControlName="effectifMaximum">
-      <mat-option *ngFor="let i of iterationCount(10); let index = index" value="{{ index + 1 }}"> {{ index + 1 }}</mat-option> <!-- TODO FIX passer les valeurs -->
+      <mat-option *ngFor="let n of effectifMaximum" [value]="n"> {{n}} </mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -16,7 +16,7 @@
   <mat-form-field>
     <mat-label>Nombre de séances/sem</mat-label>
     <mat-select formControlName="nombreSeanceHebdomadaire">
-      <mat-option *ngFor="let i of iterationCount(4); let index = index" value="{{ index + 1 }}"> {{ index + 1 }}</mat-option>
+<!--      <mat-option *ngFor="let i of iterationCount(4); let index = index" value="{{ index + 1 }}"> {{ index + 1 }}</mat-option>-->
     </mat-select>
   </mat-form-field>
 

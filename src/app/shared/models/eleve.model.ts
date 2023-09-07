@@ -3,7 +3,6 @@ enum Genre {
   Homme = 'H',
   Femme = 'F'
 }
-
 export interface Eleve {
   id: string;
   prenom : string;

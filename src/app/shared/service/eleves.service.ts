@@ -8,10 +8,8 @@ import {environment} from "../../../environments/environments";
   providedIn: 'root'
 })
 export class ElevesService {
-
   constructor(private http: HttpClient) {
   }
-
   public getAllEleves(): Observable<Array<Eleve>> {
     return this.http.get<Array<Eleve>>(environment.backendHost + "/eleves")
   }

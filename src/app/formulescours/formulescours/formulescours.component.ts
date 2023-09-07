@@ -15,6 +15,9 @@ import {FormAjoutFormulecoursComponent} from "../form-ajout-formulecours/form-aj
 })
 export class FormulescoursComponent implements OnInit {
   formules!: Observable<Array<Formulecours>>;
+  effectifValue: number = 0;
+  nombreSeanceValue: number = 0;
+  dureeSeanceValue: number = 0;
 
 
   constructor(private formulesCoursService: FormulescoursService,
@@ -26,7 +29,11 @@ export class FormulescoursComponent implements OnInit {
   }
 
   openEditFormuleCoursFormDialog(formule: Formulecours) {
-    const dialogRef = this.dialog.open(FormEditFormulecoursComponent, {width: "1100px", height: "80vh", data: formule});
+    this.effectifValue = formule.effectifMaximum;
+    this.dureeSeanceValue = formule.dureeSeanceMinuteFormuleCours;
+    this.nombreSeanceValue = formule.nombreSeanceTotal;
+    const dialogRef = this.dialog.open(FormEditFormulecoursComponent, {width: "1100px", height: "80vh",
+      data: formule});
     dialogRef.afterClosed();
   }
 
