@@ -8,20 +8,24 @@
 
     <mat-form-field>
       <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
-      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error>
-<!--      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error> si différentes erreurs -->
+      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError('required')">{{err_message_required}}</mat-error>
+      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError('pattern')">{{err_message_name_pattern}}</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Nom" name="nom" formControlName="nom" required>
+      <mat-error *ngIf="ajoutEleveFormGroup.get('nom')?.hasError('required')">{{err_message_required}}</mat-error>
+      <mat-error *ngIf="ajoutEleveFormGroup.get('nom')?.hasError('pattern')">{{err_message_name_pattern}}</mat-error>
     </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="email" placeholder="Email" type="email" name="email" formControlName="email" required>
+    <input matInput type="email" placeholder="Email" name="email" formControlName="email" required>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('email')?.hasError">{{err_message_email_pattern}}</mat-error>
   </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Téléphone" name="telephone" formControlName="telephone" required>
+      <mat-error *ngIf="ajoutEleveFormGroup.get('telephone')?.hasError">{{err_message_email_pattern}}</mat-error>
     </mat-form-field>
 
 
@@ -39,5 +43,5 @@
 
     <mat-checkbox formControlName="actif">Actif</mat-checkbox>
 
-    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="ajoutEleveFormGroup.invalid">Créer Élève</button>
   </form>
