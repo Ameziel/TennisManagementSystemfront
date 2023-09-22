@@ -8,6 +8,11 @@ import {InscriptionFormule, MoyenPaiement} from "../../shared/models/inscription
 import {Eleve} from "../../shared/models/eleve.model";
 import {GroupeCours} from "../../shared/models/groupeCours";
 import {Formulecours} from "../../shared/models/formuleCours.model";
+import {
+  ERR_CHOIX_ELEVE_INEXISTANT, ERR_CHOIX_FORMULE_INEXISTANT,
+  ERR_CHOIX_GROUPE_INEXISTANT,
+  INVALID_MONTANT_VALUE
+} from "../../shared/constants/forms-messages";
 
 @Component({
   selector: 'app-form-ajout-inscriptionformule',
@@ -25,6 +30,10 @@ export class FormAjoutInscriptionformuleComponent implements OnInit {
   listGroupesCours: GroupeCours[] = [];
   listFormulesCours: Formulecours[] = [];
   moyensPaiement = Object.values(MoyenPaiement);
+  err_message_montant_invalide = INVALID_MONTANT_VALUE;
+  err_message_eleve_inexistant = ERR_CHOIX_ELEVE_INEXISTANT;
+  err_message_groupe_inexistant = ERR_CHOIX_GROUPE_INEXISTANT;
+  err_message_formule_inexistant = ERR_CHOIX_FORMULE_INEXISTANT;
 
   constructor(private inscriptionFormuleSerivce: InscriptionsformuleService,
               private eleveService: ElevesService,
@@ -45,7 +54,7 @@ export class FormAjoutInscriptionformuleComponent implements OnInit {
         referenceFormuleCours: this.formBuilder.control(null, [Validators.required]),
 
       });
-    this.eleveService.getAllEleves().subscribe(e => { //TODO choisir l'élève actif
+    this.eleveService.getAllActifsEleveAndOrderByNomAsc().subscribe(e => {
       this.listEleves = e;
     });
     this.groupeCoursService.getAllGroupesCours().subscribe(gps => { // TODO choisir les groupes actifs
