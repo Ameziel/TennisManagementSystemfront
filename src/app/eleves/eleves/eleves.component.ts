@@ -7,6 +7,7 @@ import {Eleve} from "../../shared/models/eleve.model";
 import {MatDialog} from '@angular/material/dialog';
 import {FormEditComponent} from "../form-edit/form-edit.component";
 import {FormAjoutComponent} from "../form-ajout/form-ajout.component";
+import {ngxCsv} from "ngx-csv";
 
 @Component({
   selector: 'app-eleves',
@@ -82,6 +83,23 @@ export class ElevesComponent implements AfterViewInit, OnInit {
         }
       }
     )
+  }
+  exportCSV() {
+    var data = this.eleves;
+    var options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: true,
+      title: 'Fichier élève',
+      useBom: true,
+      noDownload: false,
+      headers: ["id", "prenom", "nom","genre","telephone","email","dateDeNaissance","details","actif"]
+    };
+    var dateDuJour = new Date(); //Todo le fichier en fonction de la date
+
+    new ngxCsv(data, "Export_Eleve", options);
   }
 }
 
