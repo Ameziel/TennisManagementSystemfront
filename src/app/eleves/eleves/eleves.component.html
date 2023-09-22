@@ -1,5 +1,8 @@
 <h1>Liste des Élèves</h1>
 <button mat-raised-button color="primary" (click)="openAjoutEleveFormDialog()">Ajouter un élève</button>
+<button mat-raised-button color="accent" (click)="exportCSV()">
+  Exporter les données
+</button>
 <mat-form-field>
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -68,6 +71,7 @@
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr>
     </table>
+
     <!--  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>-->
   </div>
 </div>

@@ -5,8 +5,8 @@
       <mat-label>Choisir l'élève</mat-label>
       <mat-select formControlName="referenceEleve">
         <mat-option [value]="eleve.id" *ngFor="let eleve of listEleves">{{eleve.nom}} - {{eleve.prenom}}</mat-option>
-        <!-- TODO le order by ce truc -->
       </mat-select>
+      <mat-error *ngIf="ajoutInscriptionFormuleGroup.get('referenceEleve')?.hasError('required')">{{err_message_eleve_inexistant}}</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -15,6 +15,7 @@
         <mat-option [value]="groupeCours.id"
                     *ngFor="let groupeCours of listGroupesCours">{{groupeCours.libelle}}</mat-option>
       </mat-select>
+      <mat-error *ngIf="ajoutInscriptionFormuleGroup.get('referenceGroupeCours')?.hasError('required')">{{err_message_groupe_inexistant}}</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -26,12 +27,14 @@
           {{formulecours.nombreSeanceTotal}}séances de{{formulecours.dureeSeanceMinuteFormuleCours}}mins
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="ajoutInscriptionFormuleGroup.get('referenceFormuleCours')?.hasError">{{err_message_formule_inexistant}}</mat-error>
     </mat-form-field>
   </div>
   <mat-form-field>
     <mat-label>Montant reçu</mat-label>
     <input matInput type="number" name="montantPercu" min="1" max="5000"
            formControlName="montantPercu" required>
+    <mat-error *ngIf="ajoutInscriptionFormuleGroup.get('montantPercu')?.hasError">{{err_message_montant_invalide}}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -54,5 +57,5 @@
     <textarea matInput placeholder="Renseignement sur le paiement" formControlName="notePaiement"></textarea>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Ajouter l'inscripton</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="ajoutInscriptionFormuleGroup.invalid">Ajouter l'inscripton</button>
 </form>

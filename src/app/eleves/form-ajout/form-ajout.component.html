@@ -1,43 +1,47 @@
 <h1>Ajouter un élève</h1>
-<form class="form-container"  [formGroup]="ajoutEleveFormGroup" (ngSubmit)="handleSaveEleve()">
+<form class="form-container" [formGroup]="ajoutEleveFormGroup" (ngSubmit)="handleSaveEleve()">
 
-  <mat-radio-group formControlName="genre" aria-label="Select an option" >
+  <mat-radio-group formControlName="genre" aria-label="Select an option">
     <mat-radio-button value="F" id="F" name="genre" checked>F</mat-radio-button>
     <mat-radio-button value="H" id="H" name="genre">H</mat-radio-button>
   </mat-radio-group>
 
-    <mat-form-field>
-      <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
-      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error>
-<!--      <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError">Indiquez une valeur</mat-error> si différentes erreurs -->
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Nom" name="nom" formControlName="nom" required>
-    </mat-form-field>
-
   <mat-form-field>
-    <input matInput type="email" placeholder="Email" type="email" name="email" formControlName="email" required>
+    <input matInput placeholder="Prénom" name="prenom" formControlName="prenom" required>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError('required')">{{err_message_required}}</mat-error>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('prenom')?.hasError('pattern')">{{err_message_name_pattern}}</mat-error>
   </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Téléphone" name="telephone" formControlName="telephone" required>
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Nom" name="nom" formControlName="nom" required>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('nom')?.hasError('required')">{{err_message_required}}</mat-error>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('nom')?.hasError('pattern')">{{err_message_name_pattern}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="email" placeholder="Email" name="email" formControlName="email" required>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('email')?.hasError">{{err_message_email_pattern}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Téléphone" name="telephone" formControlName="telephone" required>
+    <mat-error *ngIf="ajoutEleveFormGroup.get('telephone')?.hasError">{{err_message_phoneNumber_pattern}}</mat-error>
+  </mat-form-field>
 
 
   <mat-form-field>
     <mat-label>Choisissez une date</mat-label>
-    <input matInput formControlName="dateDeNaissance" [matDatepicker]="picker">
+    <input matInput formControlName="dateDeNaissance" [matDatepicker]="picker" [max]="maxDate">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-    <mat-form-field>
-      <textarea matInput placeholder="Détails" name="details" formControlName="details"></textarea>
-    </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Détails" name="details" formControlName="details"></textarea>
+  </mat-form-field>
 
-    <mat-checkbox formControlName="actif">Actif</mat-checkbox>
+  <mat-checkbox formControlName="actif">Actif</mat-checkbox>
 
-    <button mat-raised-button color="primary" type="submit">Créer Élève</button>
-  </form>
+  <button mat-raised-button color="primary" type="submit" [disabled]="ajoutEleveFormGroup.invalid">Créer Élève</button>
+</form>

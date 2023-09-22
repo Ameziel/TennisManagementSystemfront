@@ -82,5 +82,5 @@
 
     <mat-checkbox formControlName="actif">Actif</mat-checkbox>
 
-    <button mat-raised-button color="primary" type="submit">Créer Formule</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="ajoutFormuleCoursFormGroup.invalid">Créer Formule</button>
 </form>

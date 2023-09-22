@@ -14,6 +14,7 @@ import {MoniteursService} from "../../shared/service/moniteurs.service";
   styleUrls: ['./form-ajout-prestationcours.component.css']
 })
 export class FormAjoutPrestationscoursComponent implements OnInit {
+  maxDate = new Date();
   ajoutPrestationCoursFormuleGroup!: FormGroup;
 
   readonly moniteurs$ = this.moniteurService.getAllMoniteurs();
