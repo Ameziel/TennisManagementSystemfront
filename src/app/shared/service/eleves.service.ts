@@ -13,6 +13,13 @@ export class ElevesService {
   public getAllEleves(): Observable<Array<Eleve>> {
     return this.http.get<Array<Eleve>>(environment.backendHost + "/eleves")
   }
+  public getAllByOrderByNomAsc(): Observable<Array<Eleve>> {
+    return this.http.get<Array<Eleve>>(environment.backendHost + "/eleves/allNameAsc")
+  }
+  public getAllActifsEleveAndOrderByNomAsc(): Observable<Array<Eleve>> {
+    return this.http.get<Array<Eleve>>(environment.backendHost + "/eleves/ActifsAndAllNameAsc")
+  }
+
 
   public searchElevesByNames(keyword: string): Observable<Array<Eleve>> {
     return this.http.get<Array<Eleve>>(environment.backendHost + "/eleves/search?keyword=" + keyword)
